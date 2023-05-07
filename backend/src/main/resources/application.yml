@@ -6,20 +6,12 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddlAuto: create-drop
     show-sql: false
     properties:
       hibernate:
         format_sql: true
     database: postgresql
     databasePlatform: org.hibernate.dialect.PostgreSQLDialect
-  cache:
-    type: ehcache
-    cacheNames: infracoesCache
-    ehcache:
-      config: classpath:ehcache.xml
 server:
   port: 8085
-jasypt:
-  encryptor:
-    password: admin

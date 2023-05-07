@@ -1,4 +1,4 @@
-package br.com.rafael.desafiobdr.backend.controllers.dto;
+package br.com.rafael.desafiobdr.backend.dto;
 
 import br.com.rafael.desafiobdr.backend.models.Record;
 import lombok.*;
@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor @Builder
+@AllArgsConstructor
 public class RecordDto {
 
     private Long id;

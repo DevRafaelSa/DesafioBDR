@@ -1,12 +1,12 @@
 package br.com.rafael.desafiobdr.backend.models;
 
-import br.com.rafael.desafiobdr.backend.config.StringEncryptorConverter;
-import br.com.rafael.desafiobdr.backend.controllers.form.RecordForm;
+import br.com.rafael.desafiobdr.backend.dto.RecordDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -15,7 +15,7 @@ import javax.validation.constraints.Positive;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@Entity @Data @Builder @NoArgsConstructor
+@Entity @Data @NoArgsConstructor
 @AllArgsConstructor @Table(name = "records")
 public class Record implements Serializable {
 
@@ -23,7 +23,7 @@ public class Record implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss", locale = "pt-BR", timezone = "Brazil/East")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "data_hora")
     private LocalDateTime moment;
 
@@ -32,7 +32,7 @@ public class Record implements Serializable {
 
     @Pattern(regexp = "[A-Z]{3}[0-9][A-Z][0-9]{2}")
     @Column(name = "placa")
-    @Convert(converter = StringEncryptorConverter.class)
+//    @Convert(converter = StringEncryptorConverter.class)
     private String placa;
 
     @NotBlank
@@ -44,5 +44,5 @@ public class Record implements Serializable {
         this.placa = placa;
         this.classeVeiculo = classeVeiculo;
     }
-    
+
 }
