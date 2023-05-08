@@ -1,7 +1,6 @@
 package br.com.rafael.desafiobdr.backend.services.impl;
 
 import br.com.rafael.desafiobdr.backend.dto.RecordDto;
-import br.com.rafael.desafiobdr.backend.form.RecordForm;
 import br.com.rafael.desafiobdr.backend.models.Record;
 import br.com.rafael.desafiobdr.backend.repositories.RecordRepository;
 import br.com.rafael.desafiobdr.backend.services.RecordService;
@@ -23,15 +22,6 @@ public class RecordServiceImpl implements RecordService {
 
     private RecordRepository recordRepository;
 
-
-    @Override
-    public Record criarInfracaoUsuario(RecordForm recordForm) {
-
-        Record record = new Record(recordForm.getMoment(), recordForm.getVelocidade(), recordForm.getPlaca(),
-                recordForm.getClasseVeiculo());
-
-        return recordRepository.save(record);
-    }
 
 
     @Override

@@ -1,0 +1,53 @@
+version: '3.8'
+services:
+  banco:
+    image: 'postgres'
+    container_name: banco
+    environment:
+      POSTGRES_DB: centralinfracoes
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./database/:/var/lib/postgresql/data
+    ports:
+      - 5430:5432
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d centralinfracoes" ]
+      interval: 5s
+      retries: 5
+    restart: always
+    networks:
+        - net
+
+  bdr:
+    image: 'desafiobdr'
+    container_name: bdr
+    build:
+      context: ./backend
+      dockerfile : Dockerfile
+    ports:
+      - 8085:8080
+    networks:
+      - net
+    depends_on:
+      banco:
+        condition: service_healthy
+    restart: always
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://banco:5432/centralinfracoes
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+    command: mvn spring-boot:run
+    deploy:
+      resources:
+        limits:
+          # cpus: '0.5'
+          memory: 300M
+        reservations:
+          # cpus: '0.0001'
+          memory: 300M
+
+networks:
+  net:
+    driver: bridge
