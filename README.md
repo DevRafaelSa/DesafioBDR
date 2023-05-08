@@ -13,7 +13,8 @@ A aplicação consiste em um simulador de infração que gera infrações automa
 ## Front end
 - AngularJS
 
-![Web 1](https://github.com/acenelio/assets/raw/main/sds1/web1.png)
+# Layout
+![Layout](https://github.com/DevRafaelSa/DesafioBDR/blob/main/frontend.png)
 
 ## Back end
 - Java
