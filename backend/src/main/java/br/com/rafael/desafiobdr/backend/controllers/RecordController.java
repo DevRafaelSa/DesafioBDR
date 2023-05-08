@@ -47,4 +47,10 @@ public class RecordController {
         loop();
         return lista;
     }
+
+    @GetMapping("/pararLoop")
+    public void pararLoop() {
+        executor.shutdown();
+    }
+
 }
