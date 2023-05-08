@@ -7,25 +7,37 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   public isLoopRunning = false;
 
   constructor(private http: HttpClient) {}
 
+    dados: any[] = [];
+
   public startLoop(): void {
-    this.http.post('/infracoes/simulador/start', {}).subscribe(() => {
+    this.http.get('/api/central/iniciarLoop', {}).subscribe(() => {
       this.isLoopRunning = true;
     });
   }
 
   public stopLoop(): void {
-    this.http.post('/infracoes/simulador/stop', {}).subscribe(() => {
+    this.http.get('/api/central/pararLoop', {}).subscribe(() => {
       this.isLoopRunning = false;
     });
   }
 
   public consultarBanco(): void {
-    this.http.get('/infracoes').subscribe((response: any) => {
-      console.log(response);
+    this.http.get('/api/central').subscribe((response: any) => {
+      this.dados = response;
     });
-  }
+}
+
+atualizarDados() {
+  this.consultarBanco();
+  setTimeout(() => {
+    this.atualizarDados();
+  }, 5000);
+}
 }

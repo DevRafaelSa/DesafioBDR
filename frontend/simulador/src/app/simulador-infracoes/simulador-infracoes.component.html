@@ -1,6 +1,18 @@
-<h1>Simulador de Infrações</h1>
-<div class="buttons">
-  <button (click)="start()">Iniciar Loop</button>
-  <button (click)="stop()">Parar Loop</button>
-  <button (click)="consultar()">Consultar Banco de Dados</button>
+<div class="panel">
+  <h1>Simulador de Infrações</h1>
+  <div class="buttons">
+    <button (click)="startLoop()">Iniciar Loop</button>
+    <button (click)="stopLoop()">Parar Loop</button>
+    <button (click)="consultarBanco()">Consultar Banco de Dados</button>
+  </div>
 </div>
+
+<div class="dados">
+  <h2>Lista</h2>
+  <ul>
+    <li *ngFor="let item of dados">{{ dados }}</li>
+  </ul>
+</div>
+
+
+

@@ -1,18 +1,60 @@
-.buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0062cc;
-  }
+.panel {
+  margin: 200px auto auto;
+  width: 50%;
+  text-align: center;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1E3A8A;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.panel h1 {
+  font-family: Arial, sans-serif;
+  font-size: 32px;
+  margin-bottom: 60px;
+}
+
+.dados {
+  margin: 20px auto auto;
+  width: 50%;
+  text-align: center;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dados h2 {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.dados ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dados ul li {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
