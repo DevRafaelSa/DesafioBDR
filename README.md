@@ -13,6 +13,8 @@ A aplicação consiste em um simulador de infração que gera infrações automa
 ## Front end
 - AngularJS
 
+![Web 1](https://github.com/acenelio/assets/raw/main/sds1/web1.png)
+
 ## Back end
 - Java
 - Spring Boot
@@ -30,7 +32,7 @@ Realizar o clone do projeto. Depois basta inciar o serviço de backend (há a op
 
 O frontend pode ser inciado pelo terminal. Caminhe até a pasta frontend/simulador e insira o comando "npm i" e depois "ng serve". Lembrando que se faz necessário ter o AngularJS instalado em sua máquina.
 
-
+A aplicação também foi testada no Postman.
 
 # Analista Responsável
 
